@@ -1,5 +1,6 @@
 import os
 import logging
+import shutil
 from pathlib import Path
 from emi import Merx, Epitome
 
@@ -28,7 +29,7 @@ class remove(Merx):
                     #That's okay. that might be why we're rolling back ;)
                     continue
                 if (thing.is_dir()):
-                    thing.rmdir()
+                    shutil.rmtree(thing)
                 else:
                     thing.unlink()
                 logging.debug(f"Removed {str(thing)}")
