@@ -15,7 +15,7 @@ class remove(Merx):
     def Transaction(this):
         for tome in this.tomes:
             logging.info(f"Removing {tome}...")
-            epitome = this.GetTome(tome)
+            epitome = this.executor.GetTome(tome, download=False)
             if (epitome is None or epitome.installed_at is None or not len(epitome.installed_at)):
                 logging.debug(f"Nothing to remove for {tome}")
                 continue
